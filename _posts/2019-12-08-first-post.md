@@ -5,3 +5,5 @@ categories: GUGU
 ---
 
 ![gugu_1](/../res/images/gugu_1.jpeg)
+
+![gugu_1](/../res/images/hi_gugu.jpeg)
