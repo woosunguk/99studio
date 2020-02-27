@@ -1,0 +1,45 @@
+---
+title: "고양이 생일을 만들었습니다."
+date: 2020-02-28 00:00:00 +0900
+categories: cat
+---
+
+![birth](/../res/images/cat_birth.png)
+
+```
+<div class="title m-b-md">
+    <div v-if="loading">Fething customers...</div>
+    <div v-else>{{ this.$moment(profile.birthday).isBefore() ? 'CAT':'알' }}</div>
+</div>
+
+생일 기점으로 알에서 CAT으로 변하게 되고,
+생일 데이터는 저장소를 통해 가져옵니다.
+```
+
+```
+export default {
+    state: {
+        profile: {}
+    },
+
+    getters: {
+        getBirthday: state => {
+            return state.profile.birthday
+        }
+    },
+
+    actions: {
+        fetchProfile( { commit }) {
+            commit('setProfile', {
+                birthday: '2020-02-28 00:00:00'
+            })
+        }
+    },
+
+    mutations: {
+        setProfile(state, profile) {
+            state.profile = profile;
+        }
+    }
+}
+```
