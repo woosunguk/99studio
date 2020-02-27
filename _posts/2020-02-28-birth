@@ -7,11 +7,24 @@ categories: cat
 ![birth](/../res/images/cat_birth.png)
 
 ```
-<div class="title m-b-md">
-    <div v-if="loading">Fething customers...</div>
-    <div v-else>{{ this.$moment(profile.birthday).isBefore() ? 'CAT':'알' }}</div>
-</div>
+<template>
+    <div class="title m-b-md">
+        <div v-if="loading">Fething customers...</div>
+        <div v-else>{{ this.$moment(profile.birthday).isBefore() ? 'CAT':'알' }}</div>
+    </div>
+</template>
 
+<script>
+    export default {
+        ...
+        computed: {
+            ...mapState({
+                profile: state => state.cat.profile
+            })
+        },
+        ...
+    }
+</script>
 생일 기점으로 알에서 CAT으로 변하게 되고,
 생일 데이터는 저장소를 통해 가져옵니다.
 ```
